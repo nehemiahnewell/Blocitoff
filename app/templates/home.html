@@ -1,0 +1,49 @@
+<nav>
+<ul>
+  <li><a ng-click="home.currentview = 1">Current Tasks</a></li>
+  <li><a ng-click="home.currentview = 0">Old Tasks</a></li>
+</ul>
+
+</nav>
+<div>
+  <div class='toDoList'>
+    <div ng-show="home.currentview === 1">
+        <table class ="tasktable" align="center">
+          <caption>Tasks to do.</caption>
+          <tr>
+            <th>Task</th>
+            <th>priority</th>
+            <th>Date</th>
+            <th>Complete</th>
+          </tr>
+          <tr ng-repeat="task in home.fresh">
+            <td>{{ task.content }}</td>
+            <td>{{ task.priority }}</td>
+            <td>{{ home.dateOut(task.sentAt) }}</td>
+            <td><input type="checkbox" ng-click="home.retire(task.$id)"></td>
+          </tr>
+          <tr>
+            <td><input type="text" name="newTask" ng-model="home.postText"/></td>
+            <td><select ng-model="home.postPriority">
+              <option value="high">High</option><option value="medium">Medium</option><option value="low">Low</option>
+            </select></td>
+            <td></td>
+            <td><a class="button" ng-click="home.postIt()">Submit</a></td>
+          </tr>
+        </table>
+      </div>
+      <div ng-show="home.currentview === 0">
+        <table class ="tasktable" align="center">
+          <caption>Retired tasks.</caption>
+          <tr>
+            <th>Task</th>
+            <th>priority</th>
+          </tr>
+          <tr ng-repeat="task in home.old">
+            <td>{{ task.content }}</td>
+            <td>{{ task.priority }}</td>
+          </tr>
+        </table>
+    </div>
+  </div>
+</div>

@@ -1,12 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="toDoDestroy">
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Bloc Base Project</title>
-    <link rel="stylesheet" href="/styles/main.css">
+    <title>Blocitoff</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
-<body>
-    <h4>Hello, World???</h4>
-    <script src="/scripts/app.js"></script>
+<body class="background">
+  
+    <ui-view></ui-view>
+    
+    <!-- Angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+    
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
+    
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-cookies.js"></script>
+    <script>
+    // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDlTfamN8rG9DbTpoj746gxfSrL1-P5sSE",
+        authDomain: "to-do-destroy.firebaseapp.com",
+        databaseURL: "https://to-do-destroy.firebaseio.com",
+        projectId: "to-do-destroy",
+        storageBucket: "to-do-destroy.appspot.com",
+        messagingSenderId: "238239197280"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
+    
+    <!-- user code -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/services/Task.js"></script>
+    <script src="scripts/controllers/HomeCtrl.js"></script>
 </body>
 </html>
